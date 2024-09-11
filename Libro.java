@@ -8,15 +8,15 @@ public class Libro {
 	private boolean prestado;
 
 	public Libro(String titulo, Autor autor, int anyoPublicacion, String isbn) {
-		this(titulo, autor, anyoPublicacion, isbn, false);
-	}
-
-	public Libro(String titulo, Autor autor, int anyoPublicacion, String isbn, boolean prestado) {
 		this.titulo = titulo;
 		this.autor = autor;
 		this.anyoPublicacion = anyoPublicacion;
 		this.isbn = isbn;
-		this.prestado = prestado;
+		this.prestado = false;
+	}
+
+	public Libro(String titulo, Autor autor, int anyoPublicacion, String isbn, boolean prestado) {
+		this(titulo, autor, anyoPublicacion, isbn);
 	}
 
 	public String getInformacion() {
@@ -39,5 +39,9 @@ public class Libro {
 
 	public boolean isPrestado() {
 		return prestado;
+	}
+
+	public void setPrestado(boolean prestado) {
+		this.prestado = prestado;
 	}
 }
