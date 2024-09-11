@@ -2,22 +2,29 @@ import java.time.Year;
 
 public class Libro {
 	private String titulo;
-	private String autor;
+	private Autor autor;
 	private int anyoPublicacion;
 	private String isbn;
+	private boolean prestado;
 
-	public Libro(String titulo, String autor, int anyoPublicacion, String isbn) {
+	public Libro(String titulo, Autor autor, int anyoPublicacion, String isbn) {
+		this(titulo, autor, anyoPublicacion, isbn, false);
+	}
+
+	public Libro(String titulo, Autor autor, int anyoPublicacion, String isbn, boolean prestado) {
 		this.titulo = titulo;
 		this.autor = autor;
 		this.anyoPublicacion = anyoPublicacion;
 		this.isbn = isbn;
+		this.prestado = prestado;
 	}
 
-	public void mostrarInformacion() {
-		System.out.println("Titulo: " + titulo);
-		System.out.println("Autor: " + autor);
-		System.out.println("Anyo de publicacion: " + anyoPublicacion);
-		System.out.println("ISBN: " + isbn + "\n");
+	public String getInformacion() {
+		return "Titulo: " + titulo + "\n" +
+				"Autor: " + autor + "\n" +
+				"Anyo de publicacion: " + anyoPublicacion + "\n" +
+				"ISBN: " + isbn + "\n" +
+				"Prestado: " + (prestado ? "Si" : "No");
 	}
 
 	public boolean esAntiguo(Libro libro) {
@@ -28,5 +35,9 @@ public class Libro {
 
 	public String getTitulo() {
 		return titulo;
+	}
+
+	public boolean isPrestado() {
+		return prestado;
 	}
 }

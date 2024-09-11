@@ -11,19 +11,37 @@ public class Biblioteca {
 		this.libros.add(libro);
 	}
 
-	public void mostrarLibros() {
+	public ArrayList<String> getInformacionLibros() {
+		ArrayList<String> libros = new ArrayList<>();
+
 		for (Libro libro : this.libros) {
-			System.out.println("Informacion del libro");
-			libro.mostrarInformacion();
+			libros.add(libro.getInformacion());
 		}
+
+		return libros;
 	}
 
-	public void buscarLibroPorTituloLibroPorTitulo(String titulo) {
+	public ArrayList<String> getInformacionLibrosPorTitulo(String titulo) {
+		ArrayList<String> libros = new ArrayList<>();
+
 		for (Libro libro : this.libros) {
 			if (titulo.equals(libro.getTitulo())) {
-				System.out.println("Libro por titulo");
-				libro.mostrarInformacion();
+				libros.add(libro.getInformacion());
 			}
 		}
+
+		return libros;
+	}
+
+	public ArrayList<String> getInformacionLibrosPrestados(boolean prestado) {
+		ArrayList<String> libros = new ArrayList<>();
+
+		for (Libro libro : this.libros) {
+			if (libro.isPrestado() == prestado) {
+				libros.add(libro.getInformacion());
+			}
+		}
+
+		return libros;
 	}
 }
